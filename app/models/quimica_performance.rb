@@ -1,0 +1,2 @@
+class QuimicaPerformance < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class RodaEquVida < ApplicationRecord
+end

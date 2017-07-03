@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  impacto: 1
+  quando: MyString
+  quem: MyString
+  evidencia: MyString
+  sequencia: 1
+
+two:
+  impacto: 1
+  quando: MyString
+  quem: MyString
+  evidencia: MyString
+  sequencia: 1

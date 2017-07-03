@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  saude: 1
+  deseIntelectual: 1
+  equiEmocional: 1
+  realizacaoProposito: 1
+  recursosFinanceiros: 1
+  contribuicaoSocial: 1
+  familia: 1
+  deseAmoroso: 1
+  vidaSocial: 1
+  hobbiesDiversoes: 1
+  plenitudeFelicidade: 1
+  espiritualidade: 1
+
+two:
+  saude: 1
+  deseIntelectual: 1
+  equiEmocional: 1
+  realizacaoProposito: 1
+  recursosFinanceiros: 1
+  contribuicaoSocial: 1
+  familia: 1
+  deseAmoroso: 1
+  vidaSocial: 1
+  hobbiesDiversoes: 1
+  plenitudeFelicidade: 1
+  espiritualidade: 1
