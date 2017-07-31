@@ -1,10 +1,11 @@
 class UsuariosController < ApplicationController
+  skip_before_action :authenticate_request, only: [:new, :create]
   before_action :set_usuario, only: [:show, :update, :destroy]
 
   # GET /usuarios
   def index
     @usuarios = Usuario.all
-
+    puts @current_user
     render json: @usuarios
   end
 
@@ -46,6 +47,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def usuario_params
-      params.require(:usuario).permit(:nome, :password, :email, :celular)
+      params.require(:usuario).permit(:nome, :password, :password_digest, :email, :celular)
     end
 end
