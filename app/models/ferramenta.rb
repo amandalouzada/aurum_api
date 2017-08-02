@@ -1,0 +1,2 @@
+class Ferramenta < ApplicationRecord
+end

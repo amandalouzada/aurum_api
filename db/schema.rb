@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703031834) do
+ActiveRecord::Schema.define(version: 20170802054804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170703031834) do
     t.index ["usuario_id"], name: "index_coachees_on_usuario_id"
   end
 
-  create_table "ferramenta", force: :cascade do |t|
+  create_table "ferramentas", id: :bigint, default: -> { "nextval('ferramenta_id_seq'::regclass)" }, force: :cascade do |t|
     t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20170703031834) do
     t.datetime "updated_at", null: false
     t.bigint "coachee_id"
     t.bigint "ferramenta_id"
+    t.bigint "usuario_id"
     t.index ["coachee_id"], name: "index_quimica_performances_on_coachee_id"
     t.index ["ferramenta_id"], name: "index_quimica_performances_on_ferramenta_id"
+    t.index ["usuario_id"], name: "index_quimica_performances_on_usuario_id"
   end
 
   create_table "roda_equ_vidas", force: :cascade do |t|
@@ -79,8 +81,10 @@ ActiveRecord::Schema.define(version: 20170703031834) do
     t.bigint "ferramenta_id"
     t.bigint "coachee_id"
     t.string "nome"
+    t.bigint "usuario_id"
     t.index ["coachee_id"], name: "index_roda_equ_vidas_on_coachee_id"
     t.index ["ferramenta_id"], name: "index_roda_equ_vidas_on_ferramenta_id"
+    t.index ["usuario_id"], name: "index_roda_equ_vidas_on_usuario_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -95,7 +99,9 @@ ActiveRecord::Schema.define(version: 20170703031834) do
   add_foreign_key "atividades", "quimica_performances"
   add_foreign_key "coachees", "usuarios"
   add_foreign_key "quimica_performances", "coachees"
-  add_foreign_key "quimica_performances", "ferramenta", column: "ferramenta_id"
+  add_foreign_key "quimica_performances", "ferramentas"
+  add_foreign_key "quimica_performances", "usuarios"
   add_foreign_key "roda_equ_vidas", "coachees"
-  add_foreign_key "roda_equ_vidas", "ferramenta", column: "ferramenta_id"
+  add_foreign_key "roda_equ_vidas", "ferramentas"
+  add_foreign_key "roda_equ_vidas", "usuarios"
 end

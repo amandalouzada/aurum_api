@@ -4,7 +4,7 @@ class CoacheesController < ApplicationController
 
   # GET /coachees
   def index
-    @coachees = Coachee.all
+    @coachees = Coachee.where(usuario_id: @current_usuario.id)
     render json: @coachees
   end
 
