@@ -1,4 +1,5 @@
 class CoacheesController < ApplicationController
+  # skip_before_action :authenticate_request
   before_action :set_coachee, only: [:show, :update, :destroy]
 
   # GET /coachees
@@ -15,6 +16,7 @@ class CoacheesController < ApplicationController
   # POST /coachees
   def create
     @coachee = Coachee.new(coachee_params)
+    @coachee.usuario = @current_usuario
 
     if @coachee.save
       render json: @coachee, status: :created, location: @coachee
@@ -45,6 +47,6 @@ class CoacheesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def coachee_params
-      params.require(:coachee).permit(:nome, :telefone, :idade, :sexo, :objetivo, :usuario_id, :usuario)
+      params.require(:coachee).permit(:nome, :telefone, :idade, :sexo, :objetivo)
     end
 end
