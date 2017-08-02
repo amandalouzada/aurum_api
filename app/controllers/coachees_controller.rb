@@ -4,7 +4,7 @@ class CoacheesController < ApplicationController
 
   # GET /coachees
   def index
-    @coachees = Coachee.where(usuario_id: @current_usuario.id)
+    @coachees = Coachee.where(usuario_id: @current_usuario.id, arquivado: false).order('nome asc')
     render json: @coachees
   end
 
@@ -47,6 +47,6 @@ class CoacheesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def coachee_params
-      params.require(:coachee).permit(:nome, :telefone, :idade, :sexo, :objetivo)
+      params.require(:coachee).permit(:nome, :telefone, :idade, :sexo, :objetivo, :arquivado)
     end
 end
